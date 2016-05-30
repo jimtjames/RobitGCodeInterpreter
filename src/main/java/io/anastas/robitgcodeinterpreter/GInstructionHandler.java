@@ -37,8 +37,17 @@ public class GInstructionHandler {
 		}**/
 		double xyRotationToMM = 1/127.2;
 		// Loop through each element of the list and execute
+		double curX, curY, curZ, curE;
 		for (int i=0; i<instructionList.size(); i++) {
 			GInstruction curInstruction = instructionList.get(i);
+			
+			// Update position variables
+			if (curInstruction.xcoord != 0) curX = curInstruction.xcoord;
+			if (curInstruction.ycoord != 0) curY = curInstruction.ycoord;
+			if (curInstruction.zcoord != 0) curZ = curInstruction.zcoord;
+			if (curInstruction.extrude != 0) curE = curInstruction.extrude;
+
+			
 			System.out.println("Executing Instruction type: " + curInstruction.type);
 			//System.out.println("Previous type was: " + instructionList.get(i-1).type);
 			if (curInstruction.type.equals("G1")) {
