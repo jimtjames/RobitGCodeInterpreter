@@ -6,8 +6,15 @@ import java.util.ArrayList;
 public class GInstructionReader {
 	public static void main(String[] args) {
 		try {
-			// Open file C:\gcode.txt
-			BufferedReader fileReader = new BufferedReader(new FileReader("C:\\gcode.txt"));
+			// Read gcode file from parameters
+			String fileName = "";
+			if (args.length != 1) {
+				System.err.println("Usage: robitgcodeinterpreter.jar <filename.gcode>");
+				System.exit(1);
+			} else {
+				fileName = args[0];
+			}
+			BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
 			ArrayList<GInstruction> GInstructionList = new ArrayList<GInstruction>();
 			
 			// Loop through every line in the file, parse it, and store in GInstruct ArrayList

@@ -14,5 +14,12 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+        <groupId>BrickPi</groupId>
+        <artifactId>com.brickpi</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/src/main/resources/brickpi-1.0-snapshot.jar</systemPath>
+    </dependency>
   </dependencies>
 </project>
