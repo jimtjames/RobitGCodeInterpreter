@@ -33,6 +33,10 @@ public class GInstructionReader {
 			for (GInstruction g : GInstructionList) { // For every GInstruction "g" in GInstructionList...
 				System.out.println(g);
 			}
+			
+			// Execute the instructions
+			GInstructionHandler.executeGInstructions(GInstructionList);
+			
 			fileReader.close();
 		} catch (Exception e) {e.printStackTrace();}
 	}
