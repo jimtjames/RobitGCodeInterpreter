@@ -1,10 +1,46 @@
 package io.anastas.robitgcodeinterpreter;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import com.ergotech.brickpi.BrickPi;
+import com.ergotech.brickpi.motion.Motor;
+import com.ergotech.brickpi.motion.MotorPort;
+import com.ergotech.brickpi.sensors.SensorPort;
+import com.ergotech.brickpi.sensors.TouchSensor;
 
 public class GInstructionReader {
 	public static void main(String[] args) {
+		BrickPi brickPi = null;
+		try {
+			brickPi = new BrickPi();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Motor xAxis = new Motor();
+		Motor yAxis = new Motor();
+		brickPi.setMotor(xAxis, MotorPort.MA);
+		brickPi.setMotor(yAxis, MotorPort.MA);
+		TouchSensor xTouch = new TouchSensor();
+		TouchSensor yTouch = new TouchSensor();
+		brickPi.setSensor(xTouch, SensorPort.S1);
+		brickPi.setSensor(yTouch, SensorPort.S1);
+		boolean calibratedX = false;
+		boolean calibratedY = false;
+		while (!xTouch.isSet() && calibratedX == false){
+			if (xTouch.isSet()){
+				calibratedX = true;
+			}
+			xAxis.rotate(-0.01, 5);
+		}
+		while (!yTouch.isSet() && calibratedY == false){
+			if (yTouch.isSet()){
+				calibratedY = true;
+			}
+			yAxis.rotate(-0.01, 5);
+		}
+		
 		try {
 			// Read gcode file from parameters
 			String fileName = "";
