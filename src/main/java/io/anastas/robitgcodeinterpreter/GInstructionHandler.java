@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.ergotech.brickpi.BrickPi;
 import com.ergotech.brickpi.motion.Motor;
 import com.ergotech.brickpi.motion.MotorPort;
+import com.ergotech.brickpi.sensors.*;
 
 public class GInstructionHandler {
 	
