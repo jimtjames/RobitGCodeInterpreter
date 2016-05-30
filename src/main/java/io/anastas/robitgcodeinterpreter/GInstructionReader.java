@@ -21,11 +21,11 @@ public class GInstructionReader {
 		Motor xAxis = new Motor();
 		Motor yAxis = new Motor();
 		brickPi.setMotor(xAxis, MotorPort.MA);
-		brickPi.setMotor(yAxis, MotorPort.MA);
+		brickPi.setMotor(yAxis, MotorPort.MB);
 		TouchSensor xTouch = new TouchSensor();
 		TouchSensor yTouch = new TouchSensor();
 		brickPi.setSensor(xTouch, SensorPort.S1);
-		brickPi.setSensor(yTouch, SensorPort.S1);
+		brickPi.setSensor(yTouch, SensorPort.S2);
 		boolean calibratedX = false;
 		boolean calibratedY = false;
 		while (!xTouch.isSet() && calibratedX == false){
