@@ -28,16 +28,10 @@ public class GInstructionReader {
 		brickPi.setSensor(yTouch, SensorPort.S2);
 		boolean calibratedX = false;
 		boolean calibratedY = false;
-		while (!xTouch.isSet() && calibratedX == false){
-			if (xTouch.isSet()){
-				calibratedX = true;
-			}
+		while (!xTouch.isSet()) {
 			xAxis.rotate(-0.01, 5);
 		}
-		while (!yTouch.isSet() && calibratedY == false){
-			if (yTouch.isSet()){
-				calibratedY = true;
-			}
+		while (!yTouch.isSet()) {
 			yAxis.rotate(-0.01, 5);
 		}
 		
