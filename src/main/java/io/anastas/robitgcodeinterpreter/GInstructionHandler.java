@@ -14,7 +14,6 @@ public class GInstructionHandler {
 	
 	public static void executeGInstructions(ArrayList<GInstruction> instructionList) {
 		BrickPi brickPi = null;
-
 		try {
 			brickPi = new BrickPi();
 		} catch (IOException e) {
@@ -26,6 +25,21 @@ public class GInstructionHandler {
 		brickPi.setMotor(xAxis, MotorPort.MA);
 		brickPi.setMotor(yAxis, MotorPort.MB);
 		brickPi.setMotor(zAxis, MotorPort.MC);
+		TouchSensor xTouch = new TouchSensor();
+		TouchSensor yTouch = new TouchSensor();
+		brickPi.setSensor(xTouch, SensorPort.S1);
+		brickPi.setSensor(yTouch, SensorPort.S2);
+		while (!xTouch.isSet()) {
+			xAxis.rotate(-0.01, 5);
+		}
+		while (!yTouch.isSet()) {
+			yAxis.rotate(-0.01, 5);
+		}
+		try {
+			brickPi = new BrickPi();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		double xyRotationToMM = 1/127.2;
 		// Loop through each element of the list and execute
 		for (int i=0; i<instructionList.size(); i++) {
