@@ -21,6 +21,11 @@
         <scope>system</scope>
         <systemPath>${project.basedir}/src/main/resources/brickpi-1.0-snapshot.jar</systemPath>
     </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.21</version>
+    </dependency>
   </dependencies>
   <build>
   <plugins>
