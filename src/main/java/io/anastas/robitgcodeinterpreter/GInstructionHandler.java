@@ -3,19 +3,11 @@ package io.anastas.robitgcodeinterpreter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import ev3dev.hardware.motor.NXTRegulatedMotor;
-import ev3dev.hardware.port.MotorPort;;
-
-
 public class GInstructionHandler {
 	
 	private static final NXTRegulatedMotor mA = new NXTRegulatedMotor(MotorPort.A);
 	private static final NXTRegulatedMotor mB = new NXTRegulatedMotor(MotorPort.B);
 	
-	public static void rotateX(double mm) throws InterruptedException{
-		
-	}
-
 	public static void executeGInstructions(ArrayList<GInstruction> instructionList) throws InterruptedException {		
 			System.out.println("setting up");
 			/**while (!xTouch.isSet()) {
