@@ -26,9 +26,9 @@
         <version>1.7.21</version>
     </dependency>
     <dependency>
-        <groupId>com.brickpi</groupId>
-        <artifactId>brickpi</artifactId>
-        <version>1.0</version>
+        <groupId>com.github.jabrena</groupId>
+        <artifactId>ev3dev-lang-java</artifactId>
+        <version>v0.2.0</version>
     </dependency>
   </dependencies>
   <build>
